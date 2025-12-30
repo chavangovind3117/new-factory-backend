@@ -47,7 +47,7 @@ exports.addGrowerDetails = async (req, res) => {
     console.log(result);
     const growerID = result.recordset[0].GrowerID;
 
-    console.log("grower id : ", growerID);
+    // console.log("grower id : ", growerID);
 
     if (!growerID) {
       return res.status(500).json({
@@ -74,7 +74,7 @@ exports.getAllGrowers = async (req, res) => {
   try {
     const result = await GrowerDetails.getAllGrowers();
 
-    console.log("fetch grower details : ", result);
+    // console.log("fetch grower details : ", result);
 
     if (!result) {
       return res.status(500).json({
@@ -100,10 +100,10 @@ exports.getAllGrowers = async (req, res) => {
 exports.getGrowersByVillageCode = async (req, res) => {
   try {
     const villageCode = req.params.villageCode;
-    console.log("village code in controller", villageCode);
+    // console.log("village code in controller", villageCode);
     const result = await GrowerDetails.getGrowersByVillageCode(villageCode);
 
-    console.log("fetch grower details by village code : ", result);
+    // console.log("fetch grower details by village code : ", result);
 
     if (!result) {
       return res.status(500).json({
@@ -131,7 +131,7 @@ exports.getGrowerDetails = async (req, res) => {
     const growerCode = req.params.id;
     const result = await GrowerDetails.getGrowerDetails(growerCode);
 
-    console.log(result);
+    // console.log(result);
 
     if (!result) {
       return res.status(500).json({
@@ -178,17 +178,17 @@ exports.updateGrowerDetails = async (req, res) => {
         message: "Required fields are missing.",
       });
     }
-    console.log(
-      growerID,
-      fullName,
-      address,
-      village,
-      taluka,
-      district,
-      state,
-      pinCode,
-      photo
-    );
+    // console.log(
+    //   growerID,
+    //   fullName,
+    //   address,
+    //   village,
+    //   taluka,
+    //   district,
+    //   state,
+    //   pinCode,
+    //   photo
+    // );
 
     const result = await GrowerDetails.update(
       growerID,
@@ -205,7 +205,7 @@ exports.updateGrowerDetails = async (req, res) => {
       seasonEnd
     );
 
-    console.log(result);
+    // console.log(result);
 
     if (!result) {
       return res.status(500).json({

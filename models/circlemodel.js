@@ -7,7 +7,7 @@ const getCircles = {
       "SELECT  Circlecode as circleID , CircleName FROM CircleMaster ORDER BY CircleName";
     const result = await executeQuery(query);
 
-    console.log("result in circle model : ", result);
+    // console.log("result in circle model : ", result);
 
     if (!result || result.length === 0) {
       throw new Error("No circle found in CircleMaster.");

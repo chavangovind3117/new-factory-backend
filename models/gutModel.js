@@ -9,7 +9,7 @@ const gutModel = {
 
     const result = await executeQuery(query, params);
 
-    console.log("gutlist in model : ", result);
+    // console.log("gutlist in model : ", result);
 
     if (result.recordset.length === 0) {
       throw new Error("No Guts found for the given CircleID.");
