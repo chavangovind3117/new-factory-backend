@@ -3,7 +3,7 @@ const { sql } = require("../config/database.js");
 
 const villageModel = {
   getVillageByGutID: async (gutID) => {
-    const query = `SELECT VillageCode, VillageName, VillageNameD FROM VillegeMaster WHERE GutCode = @gutID ORDER BY VillageName`;
+    const query = `SELECT Distinct VillageCode, VillageName, VillageNameD FROM VillegeMaster WHERE GutCode = @gutID ORDER BY VillageName`;
 
     const params = [{ name: "gutID", type: sql.Int, value: gutID }];
 

@@ -13,7 +13,7 @@ const GrowerDetails = {
     photo,
     season,
     seasonStart,
-    seasonEnd
+    seasonEnd,
   ) => {
     const query = `INSERT INTO GrowerDetails (FullName, Grower_Address, Village, Taluka, District, State, PinCode, PhotoUrl,season,seasonStart,seasonEnd,createdDate)
         OUTPUT INSERTED.GrowerID
@@ -66,7 +66,7 @@ const GrowerDetails = {
   },
 
   getGrowersByVillageCode: async (VillageCode) => {
-    const query = `SELECT GrowerCode, GrowerName, GrowerNameD FROM growermaster WHERE fkvillagecode = @VillageCode`;
+    const query = `SELECT Distinct GrowerCode, GrowerName, GrowerNameD FROM growermaster WHERE fkvillagecode = @VillageCode`;
 
     const params = [{ name: "VillageCode", type: sql.Int, value: VillageCode }];
     const result = await executeQuery(query, params);
@@ -90,7 +90,7 @@ const GrowerDetails = {
     photo,
     season,
     seasonStart,
-    seasonEnd
+    seasonEnd,
   ) => {
     const query = `UPDATE GrowerDetails 
          SET FullName = @fullName, Grower_Address = @address, Village = @village, Taluka = @taluka, 

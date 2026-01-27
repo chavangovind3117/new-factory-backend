@@ -15,6 +15,6 @@ exports.getVillageByGutID = async (req, res) => {
     res.status(200).json(result.recordset);
   } catch (error) {
     console.error("Error fetching village IDs:", error);
-    res.status(500).json([]);
+    res.status(500).json(error.message);
   }
 };
